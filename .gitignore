@@ -1,0 +1,13 @@
+# Never track these
+.DS_Store
+*.local
+*.secret
+*.swp
+*~
+
+# Local overrides
+zsh/local.zsh
+
+# Backup files
+*.bak
+*.backup
