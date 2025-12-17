@@ -85,6 +85,8 @@ echo "  - ~/.zsh-local/functions-$company.zsh"
 # 7. Add .zsh-local to global gitignore if not already there
 if [[ ! -f ~/.gitignore_global ]]; then
   touch ~/.gitignore_global
+  git config --global core.excludesfile ~/.gitignore_global
+  echo "✓ Created ~/.gitignore_global and configured Git"
 fi
 
 if ! grep -q ".zsh-local/" ~/.gitignore_global 2>/dev/null; then
