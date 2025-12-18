@@ -1,15 +1,5 @@
 # Zsh plugins configuration
-
-# Oh-my-zsh plugins (loaded by oh-my-zsh)
-plugins=(
-  evalcache
-  git
-  bundler
-  macos
-  rails
-  rake
-  ruby
-)
+# Note: oh-my-zsh plugins are defined in oh-my-zsh.zsh (before oh-my-zsh loads)
 
 # Custom plugins (loaded manually after oh-my-zsh)
 ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
