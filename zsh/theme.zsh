@@ -1,6 +1,11 @@
 # Theme configuration (Powerlevel10k)
 # Note: POWERLEVEL9K_MODE is set in oh-my-zsh.zsh (before theme loads)
-# Note: Theme is loaded by oh-my-zsh via ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Manually load powerlevel10k theme (like old .zshrc did)
+ZSH_CUSTOM="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+if [[ -f "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme" ]]; then
+  source "$ZSH_CUSTOM/themes/powerlevel10k/powerlevel10k.zsh-theme"
+fi
 
 # Custom prompt functions
 prompt_zsh_battery_level() {
