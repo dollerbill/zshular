@@ -3,7 +3,7 @@
 
 set -e
 
-echo "🚀 Dotfiles Bootstrap"
+echo "🚀 zshular Bootstrap"
 echo ""
 
 # 1. Install oh-my-zsh if needed
@@ -98,7 +98,7 @@ echo ""
 echo "✅ Bootstrap complete!"
 echo ""
 echo "Next steps:"
-echo "1. Edit your ~/.zshrc to source from ~/dotfiles/zsh/"
-echo "2. Move your existing config to modular files in ~/dotfiles/zsh/"
+echo "1. Edit your ~/.zshrc to source from ~/zshular/zsh/"
+echo "2. Move your existing config to modular files in ~/zshular/zsh/"
 echo "3. Move secrets to ~/.zsh-local/env.zsh"
 echo "4. Restart your shell: exec zsh"

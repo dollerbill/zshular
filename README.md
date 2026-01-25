@@ -1,6 +1,6 @@
-# Dotfiles
+# zshular
 
-Personal dotfiles for easy sharing across machines with company-specific isolation.
+Modular zsh configuration for easy sharing across machines with company-specific isolation.
 
 ## Features
 
@@ -12,7 +12,7 @@ Personal dotfiles for easy sharing across machines with company-specific isolati
 ## Directory Structure
 
 ```
-~/dotfiles/             # Git tracked
+~/zshular/             # Git tracked
 ├── zsh/
 │   ├── oh-my-zsh.zsh   # Oh-my-zsh settings
 │   ├── plugins.zsh     # Plugin configuration
@@ -34,12 +34,12 @@ Personal dotfiles for easy sharing across machines with company-specific isolati
 
 1. Clone this repository:
    ```bash
-   git clone <your-repo-url> ~/dotfiles
+   git clone <your-repo-url> ~/zshular
    ```
 
 2. Run bootstrap script:
    ```bash
-   ~/dotfiles/bootstrap.sh
+   ~/zshular/bootstrap.sh
    ```
 
 3. Replace `~/.zshrc` with loader:
@@ -47,7 +47,7 @@ Personal dotfiles for easy sharing across machines with company-specific isolati
    # Backup your current .zshrc if needed
    mv ~/.zshrc ~/.zshrc.backup
 
-   # Create new minimal .zshrc (see docs/plans/2025-12-17-dotfiles-setup.md)
+   # Create new minimal .zshrc
    ```
 
 4. Restart shell:
@@ -94,18 +94,18 @@ All secrets should go in `~/.zsh-local/env.zsh` (not tracked).
 ## Future Expansion
 
 This structure supports tracking other dotfiles:
-- Git config: `~/dotfiles/git/`
-- Ruby config: `~/dotfiles/ruby/`
+- Git config: `~/zshular/git/`
+- Ruby config: `~/zshular/ruby/`
 - etc.
 
   📝 Common Tasks
 
   Add a new shared alias
 
-  echo "alias myalias='some command'" >> ~/dotfiles/zsh/aliases.zsh
-  git -C ~/dotfiles add zsh/aliases.zsh
-  git -C ~/dotfiles commit -m "add: myalias"
-  git -C ~/dotfiles push
+  echo "alias myalias='some command'" >> ~/zshular/zsh/aliases.zsh
+  git -C ~/zshular add zsh/aliases.zsh
+  git -C ~/zshular commit -m "add: myalias"
+  git -C ~/zshular push
 
   Add a company-specific alias
 
@@ -124,8 +124,8 @@ This structure supports tracking other dotfiles:
 
   Setup on a new machine
 
-  git clone <your-repo-url> ~/dotfiles
-  ~/dotfiles/bootstrap.sh  # Installs oh-my-zsh, plugins, theme
+  git clone <your-repo-url> ~/zshular
+  ~/zshular/bootstrap.sh  # Installs oh-my-zsh, plugins, theme
   # Copy the minimal .zshrc (it's not in the repo)
   # Create ~/.zsh-local/env.zsh with machine-specific vars
   exec zsh
