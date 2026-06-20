@@ -20,6 +20,7 @@ Modular zsh configuration for easy sharing across machines with company-specific
 │   ├── path.zsh        # PATH modifications (homebrew, rbenv, nvm)
 │   ├── aliases.zsh     # Shared aliases
 │   └── functions.zsh   # Shared functions
+├── zshrc.template      # Minimal ~/.zshrc loader (installed by bootstrap)
 └── bootstrap.sh        # New machine setup
 
 ~/.zsh-local/           # NOT tracked (local only)
@@ -41,19 +42,33 @@ Modular zsh configuration for easy sharing across machines with company-specific
    ```bash
    ~/zshular/bootstrap.sh
    ```
+   This installs oh-my-zsh + plugins + powerlevel10k, installs the **MesloLGS NF**
+   font, backs up any existing `~/.zshrc`, installs the minimal loader from
+   `zshrc.template`, and renames any stray `~/.p10k.zsh` (see Prompt / Powerlevel10k).
 
-3. Replace `~/.zshrc` with loader:
-   ```bash
-   # Backup your current .zshrc if needed
-   mv ~/.zshrc ~/.zshrc.backup
+3. Set your terminal font to **MesloLGS NF** (Terminal/iTerm/Ghostty preferences).
 
-   # Create new minimal .zshrc
-   ```
+4. Move machine-specific env vars and secrets into `~/.zsh-local/env.zsh`.
 
-4. Restart shell:
+5. Restart shell:
    ```bash
    exec zsh
    ```
+
+## Prompt / Powerlevel10k
+
+**The prompt is defined entirely by inline `POWERLEVEL9K_*` variables in
+`zsh/theme.zsh`** (tracked). This is the single source of truth.
+
+- **Do NOT run `p10k configure`.** It generates a `~/.p10k.zsh` (the stock
+  rainbow template) that becomes a rival config. `theme.zsh` deliberately does
+  **not** source `~/.p10k.zsh`; if you create one, it is simply unused — and if
+  it ever gets sourced, it overrides and breaks the intended prompt.
+- `bootstrap.sh` renames any pre-existing `~/.p10k.zsh` out of the way.
+- The prompt requires a **Nerd Font**: `oh-my-zsh.zsh` sets
+  `POWERLEVEL9K_MODE='nerdfont-complete'`, so without **MesloLGS NF** installed
+  *and* selected as the terminal font, icons render as tofu/wrong glyphs.
+- To change the prompt, edit `zsh/theme.zsh` and commit — never via the wizard.
 
 ## Adding Company-Specific Config
 
@@ -90,6 +105,7 @@ All secrets should go in `~/.zsh-local/env.zsh` (not tracked).
 - Git
 - Oh-my-zsh (installed by bootstrap)
 - Powerlevel10k (installed by bootstrap)
+- A Nerd Font — **MesloLGS NF** (installed by bootstrap), set as the terminal font
 
 ## Future Expansion
 
@@ -125,8 +141,9 @@ This structure supports tracking other dotfiles:
   Setup on a new machine
 
   git clone <your-repo-url> ~/zshular
-  ~/zshular/bootstrap.sh  # Installs oh-my-zsh, plugins, theme
-  # Copy the minimal .zshrc (it's not in the repo)
+  ~/zshular/bootstrap.sh  # Installs oh-my-zsh, plugins, theme, MesloLGS NF,
+                          # and the minimal ~/.zshrc loader (from zshrc.template)
+  # Set terminal font to MesloLGS NF
   # Create ~/.zsh-local/env.zsh with machine-specific vars
   exec zsh
 
