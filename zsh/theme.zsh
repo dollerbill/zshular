@@ -98,5 +98,8 @@ POWERLEVEL9K_CUSTOM_BATTERY_STATUS_BACKGROUND="blueviolet"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon custom_internet_signal custom_battery_status_joined ssh root_indicator dir dir_writable vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status time date)
 
-# Load .p10k.zsh if it exists
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# NOTE: Do NOT source ~/.p10k.zsh here. The prompt is defined entirely by the
+# inline POWERLEVEL9K_* settings above (matching the working work-computer
+# .zshrc, which never sources ~/.p10k.zsh). Sourcing the wizard-generated
+# ~/.p10k.zsh overrides this config with the stock rainbow template.
+# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
